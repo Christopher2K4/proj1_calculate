@@ -1,56 +1,46 @@
-# Initialisation de l'historique au niveau du module pour la persistance
-historique = []
+
+
+class Calculatrice:
+    historique_calculs = {}
+#dictionnaire de donnees visant à stocker les calculs effectués
+    def __init__(self, nom, a, b):
+        self.nom = nom
+        self.a = a
+        self.b = b
+        self.resultat = None
+        self.compteur=0
+
+    def calcul(self):
+        self.compteur += 1
+        if self.nom == "addition":
+            self.resultat = self.a + self.b
+
+        elif self.nom == "soustraction":
+            self.resultat = self.a - self.b
+
+        elif self.nom == "multiplication":
+            self.resultat = self.a * self.b
+
+        elif self.nom == "division":
+            try:
+                self.resultat = self.a / self.b
+            except ZeroDivisionError:
+                self.resultat = "Erreur : Division par zéro"
+
+        else:
+            self.resultat = "Opération non reconnue"
+
+       
+#focntion qui integre les resulatats dans le dico
+    def historique (self):
+        
+        self.historique_calculs.update({self.compteur:self.resultat})
+        return self.historique_calculs
+
+
+# ─── Test ───────────────────────────────────────
 
 
 
-star={}
-star.
 
 
-def calcul( nom,a,b):
-   nom=str(nom).lower()
-   nom.strip()
-   history={}
-   match nom:
-        case "addition"|"+":
-             return f"{a} + {b} = {a+b}"
-            
-
-        case "soustraction"|"-":
-             return f"{a} - {b} = {a-b}"
-        case "multiplication"|"x":
-             return f"{a} * {b} = {a*b}"
-        case "division"|"/":
-             if b==0:
-                return "impossible de diviser par 0"
-             else:
-                return f"{a} / {b} = {a/b}"
-        case "puissance":
-             return f"{a} ^ {b} = {a**b}"       
-        case "modulo":
-                if b==0:
-                    return "impossible de faire un modulo par 0"
-                else:
-                    return f"{a} % {b} = {a%b}"
-
-historique=[]
-    
-def get_history(calcul):
-    
-     historique.append
-
-
-
-
-
-   
-
-
-   
-
-  
-
-          
-
-
-    
